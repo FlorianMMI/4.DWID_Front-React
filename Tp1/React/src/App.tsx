@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import './App.css'
-import Card from './Component/Card/card.jsx'
+import Card from './Component/Card/card'
 
 
 const user = [

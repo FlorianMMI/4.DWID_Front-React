@@ -1,7 +1,15 @@
 import React from 'react';
 import Social from '../Social/social';
 
-function Card ({user}) {
+interface User {
+    pic: string;
+    name: string;
+    email: string;
+    description: string;
+    social: any;
+}
+
+function Card({ user }: { user: User[] }) {
     const cards = user.map((u, index) => (
         <div key={index} className="flex flex-col bg-white m-4 p-4 rounded-3xl ">
             <img className="rounded-xl" src={u.pic} alt="" />
