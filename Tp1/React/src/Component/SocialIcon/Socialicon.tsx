@@ -1,4 +1,8 @@
-export default function SocialIcon({ name }: { name: string }) { 
+interface SocialIconProps {
+    name: string;
+}
+
+export default function SocialIcon({ name }: SocialIconProps) { 
     const icons: Record<string, string> = {
         Facebook: "./src/assets/Facebook.svg",
         Github: "./src/assets/Github.svg",

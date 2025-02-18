@@ -1,8 +1,12 @@
 import React from 'react';
 import SocialIcon from '../SocialIcon/Socialicon';
 
+interface SocialProps {
+    socialNetworks: {name: string, url: string}[];
+}
 
-function Social  ({socialNetworks}: {socialNetworks: {name: string, url: string}[]}) {
+
+function Social  ({socialNetworks}: SocialProps) {
     
 
     return (
