@@ -8,6 +8,6 @@ interface AvatarProps {
 
 export default function Avatar(props: AvatarProps) {
     return (
-        <img src={props.url} alt={props.alt} className={`sepia ${props.className}`} />
+        <img src={props.url} alt={props.alt} className={` ${props.className}`} />
     );
 }
