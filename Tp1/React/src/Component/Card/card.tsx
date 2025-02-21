@@ -1,35 +1,42 @@
 import React from 'react';
 import Social from '../Social/social';
+import Avatar from '../../ui/Avatar/Avatar';
+import Email from '../../ui/Email/Email';
+import Citation from '../../ui/Citation/Citation';
 
 interface User {
     pic: string;
     name: string;
-    email: string;
+    email?: string;
+    
     description: string;
     social: any;
 }
 
-function Card({ user }: { user: User[] }) {
-    const cards = user.map((u, index) => (
-        <div key={index} className="flex flex-col bg-white m-4 p-4 rounded-3xl ">
-            <img className="rounded-xl" src={u.pic} alt="" />
+function Card(user : User) {
+    return (
+
+        <div  className="flex flex-col bg-white m-4 p-4 rounded-3xl ">
+           <Avatar 
+                url={user.pic}
+                alt={user.name}
+                
+            />
             
-            <div className=" text-left">
-                <h4 className="text-black font-medium text-2xl">{u.name}</h4>
-                <span className="text-green-500 font-medium text-xl">{u.email}</span>
-                <p className="text-black w-8/10">{u.description}</p>
+            <div className=" text-left flex flex-col gap-2">
+                <h4 className="text-black font-medium text-2xl">{user.name}</h4>
+                <Email>
+                    {user.email}</Email>
+                <Citation>{user.description}</Citation>
+
             </div>
 
             <Social 
-                socialNetworks={u.social}
+                socialNetworks={user.social}
             />
         </div>
-    ));
-    
-    return (
-        <div className="flex flex-wrap justify-center">
-            {cards}
-        </div>
     );
+    
+    
 }
 export default Card;

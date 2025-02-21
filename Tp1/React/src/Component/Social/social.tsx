@@ -1,25 +1,31 @@
 import React from 'react';
-import SocialIcon from '../SocialIcon/Socialicon';
+import SocialIcon from '../../ui/SocialIcon/Socialicon';
 
 interface SocialProps {
     socialNetworks: {name: string, url: string}[];
+    className?: string;
 }
 
 
 function Social  ({socialNetworks}: SocialProps) {
     
+    if (socialNetworks == undefined || socialNetworks.length == 0) {
+        return null;
+    }
 
-    return (
-        <div className="social">
-            <ul className="flex gap-4">
-                {socialNetworks.map((network, index) => (
-                    <li className = "flex justify-center items-center" key={index}>
-                        <a href = {network.url} ><SocialIcon name = {network.name}/></a>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
+    socialNetworks.sort((a, b) => a.name.localeCompare(b.name));
+
+    let liste = socialNetworks.map((s, index) => (
+        <li key={index}>
+            <a href={s.url}><SocialIcon name={s.name}/></a>
+        </li> 
+    ));
+
+    
+        return <ul className="flex gap-4">{liste}</ul>;
+    
+
+
 };
 
 export default Social;
